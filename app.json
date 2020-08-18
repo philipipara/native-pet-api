@@ -2,11 +2,15 @@
   "expo": {
     "name": "apiFun",
     "slug": "apiFun",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/paw.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/paw.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
