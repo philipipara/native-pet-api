@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {SafeAreaView, FlatList, StyleSheet, ScrollView, Image, ActivityIndicator, RefreshControl} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, Image, ActivityIndicator, RefreshControl} from 'react-native';
 import Constants from 'expo-constants';
-import {Header, List, ListItem} from 'react-native-elements'
+import {Header, ListItem} from 'react-native-elements';
+import { AntDesign } from '@expo/vector-icons';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ const App = () => {
         
         <ListItem 
            style={styles.title}
+           leftAvatar={<AntDesign name="user" size={24} color="black" />}
            title={`This is ${animal.name}`}
            bottomDivider
            style={{backgroundColor: 'grey'}}
@@ -46,6 +48,7 @@ const App = () => {
         />
         <ListItem 
           title={`${animal.name} is a ${animal.category}`}
+          leftAvatar={<AntDesign name="tago" size={24} color="black" />}
           bottomDivider
           chevron
           />
@@ -53,6 +56,7 @@ const App = () => {
           title={`${animal.name} weighs ${animal.weight}lbs`}
           bottomDivider
           chevron
+          leftAvatar={<AntDesign name="dashboard" size={24} color="black" />}
         />
         
       </ScrollView>
