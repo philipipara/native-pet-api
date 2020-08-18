@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {SafeAreaView, Text, StyleSheet, ScrollView, Image, ActivityIndicator, RefreshControl} from 'react-native';
+import {SafeAreaView, FlatList, StyleSheet, ScrollView, Image, ActivityIndicator, RefreshControl} from 'react-native';
 import Constants from 'expo-constants';
+import {Header, List, ListItem} from 'react-native-elements'
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -22,13 +23,37 @@ const App = () => {
   if(!animal) return <ActivityIndicator size='large' />;
 
   return(
+
     <SafeAreaView style={styles.container}>
       <ScrollView
         refreshControl={<RefreshControl refreshing={loading} onRefresh={loadAnimal} />}
       >
-        <Text style={styles.paragraph}>{animal.name}</Text>
+        <Header
+            containerStyle={{paddingTop: 1, marginTop: 2, fontSize: 45, backgroundColor: 'grey'}}
+            leftComponent={{ icon: 'menu', color: '#fff' }}
+            centerComponent={{ fontSize: 50, text: 'Welcome, Find some Animals', style: { color: 'white' } }}
+            rightComponent={{ icon: 'refresh', color: '#fff' }} 
+          />
+       
         <Image style={styles.pic}source={{uri: animal.photo.full}}/>
-        <Text style={styles.paragraph}>This animal is a {animal.category}</Text>
+        
+        <ListItem 
+           style={styles.title}
+           title={`This is ${animal.name}`}
+           bottomDivider
+           style={{backgroundColor: 'grey'}}
+           chevron
+        />
+        <ListItem 
+          title={`${animal.name} is a ${animal.category}`}
+          bottomDivider
+          chevron
+          />
+        <ListItem 
+          title={`${animal.name} weighs ${animal.weight}lbs`}
+          bottomDivider
+          chevron
+        />
         
       </ScrollView>
       
@@ -46,13 +71,25 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight
   },
   paragraph: {
-    margin: 24,
+    margin: 10,
     fontSize: 18,
+    color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    
   },
   pic: {
     height: 500,
     width: 500
+  },
+  header: {
+    paddingTop: 1,
+    marginTop: 1,
+    height: 150,
+    fontSize: 50
+  },
+  title: {
+    flex: 1,
+    textAlign: 'center',
   }
 })
