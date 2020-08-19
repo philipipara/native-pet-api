@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {SafeAreaView, StyleSheet, ScrollView, Image, ActivityIndicator, RefreshControl} from 'react-native';
 import Constants from 'expo-constants';
 import {Header, ListItem} from 'react-native-elements';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Ionicons, Entypo} from '@expo/vector-icons';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -30,33 +30,39 @@ const App = () => {
         refreshControl={<RefreshControl refreshing={loading} onRefresh={loadAnimal} />}
       >
         <Header
-            containerStyle={{paddingTop: 1, marginTop: 2, fontSize: 45, backgroundColor: 'grey'}}
-            leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ fontSize: 50, text: 'Welcome, Find some Animals', style: { color: 'white' } }}
-            rightComponent={{ icon: 'refresh', color: '#fff' }} 
+            
+            containerStyle={{paddingTop: 5, marginTop: 2, fontSize: 45, backgroundColor: 'slategray'}}
+            leftComponent={<Entypo name="shuffle" size={24} color="white" />}
+            centerComponent={{ text: 'Welcome, Find some Animals', style: { color: 'white',fontSize: 15, fontWeight: 'bold'} }}
+            rightComponent={<Ionicons name="md-paw" size={24} color="white" />} 
           />
        
         <Image style={styles.pic}source={{uri: animal.photo.full}}/>
         
         <ListItem 
-           style={styles.title}
-           leftAvatar={<AntDesign name="user" size={24} color="black" />}
+           containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
+           leftAvatar={<AntDesign name="user" size={24} color="white" />}
            title={`This is ${animal.name}`}
            bottomDivider
-           style={{backgroundColor: 'grey'}}
+           titleStyle={{ color: 'white', fontWeight: 'bold' }}
            chevron
+           
         />
         <ListItem 
           title={`${animal.name} is a ${animal.category}`}
-          leftAvatar={<AntDesign name="tago" size={24} color="black" />}
+          leftAvatar={<AntDesign name="tago" size={24} color="white" />}
           bottomDivider
           chevron
+          titleStyle={{ color: 'white', alignItems:'center', fontWeight: 'bold' }}
+          containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
           />
         <ListItem 
           title={`${animal.name} weighs ${animal.weight}lbs`}
           bottomDivider
           chevron
-          leftAvatar={<AntDesign name="dashboard" size={24} color="black" />}
+          leftAvatar={<Entypo name="gauge" size={24} color="white" />}
+          titleStyle={{ color: 'white', alignItems:'center', fontWeight: 'bold' }}
+          containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
         />
         
       </ScrollView>
@@ -91,9 +97,5 @@ const styles = StyleSheet.create({
     marginTop: 1,
     height: 150,
     fontSize: 50
-  },
-  title: {
-    flex: 1,
-    textAlign: 'center',
   }
 })
