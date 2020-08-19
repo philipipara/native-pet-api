@@ -31,7 +31,7 @@ const App = () => {
       >
         <Header
             
-            containerStyle={{paddingTop: 5, marginTop: 2, fontSize: 45, backgroundColor: 'slategray'}}
+            containerStyle={{paddingTop: 5, marginTop: 2,  backgroundColor: 'slategray'}}
             leftComponent={<Entypo name="shuffle" size={24} color="white" />}
             centerComponent={{ text: 'Welcome, Find some Animals', style: { color: 'white',fontSize: 15, fontWeight: 'bold'} }}
             rightComponent={<Ionicons name="md-paw" size={24} color="white" />} 
@@ -40,11 +40,11 @@ const App = () => {
         <Image style={styles.pic}source={{uri: animal.photo.full}}/>
         
         <ListItem 
-           containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
+           containerStyle={styles.listCont}
            leftAvatar={<AntDesign name="user" size={24} color="white" />}
            title={`This is ${animal.name}`}
            bottomDivider
-           titleStyle={{ color: 'white', fontWeight: 'bold' }}
+           titleStyle={styles.title}
            chevron
            
         />
@@ -53,16 +53,16 @@ const App = () => {
           leftAvatar={<AntDesign name="tago" size={24} color="white" />}
           bottomDivider
           chevron
-          titleStyle={{ color: 'white', alignItems:'center', fontWeight: 'bold' }}
-          containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
+          titleStyle={styles.title}
+          containerStyle={styles.listCont}
           />
         <ListItem 
           title={`${animal.name} weighs ${animal.weight}lbs`}
           bottomDivider
           chevron
           leftAvatar={<Entypo name="gauge" size={24} color="white" />}
-          titleStyle={{ color: 'white', alignItems:'center', fontWeight: 'bold' }}
-          containerStyle={{backgroundColor: 'slategray', alignContent: 'center'}}
+          titleStyle={styles.title}
+          containerStyle={styles.listCont}
         />
         
       </ScrollView>
@@ -75,7 +75,6 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'teal',
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight
@@ -97,5 +96,12 @@ const styles = StyleSheet.create({
     marginTop: 1,
     height: 150,
     fontSize: 50
+  },
+  title: {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  listCont: {
+    backgroundColor: 'slategray'
   }
 })
