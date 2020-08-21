@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "apiFun",
+    "description": "An app where I use an api call to get random pets. A user just refreshes by pulling down on the screen and a new pet arrives",
     "slug": "apiFun",
     "platforms": [
       "ios",
