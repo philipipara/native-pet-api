@@ -4,4 +4,4 @@ Created an app using an Api where users can get random pets every time they refr
 
 https://expo.io/@philipipara/apiFun
 
-![Home](https://github.com/philipipara/native-pet-api/blob/master/assets/demo.png)
+![Home](https://github.com/philipipara/native-pet-api/blob/master/assets/demo1.png)
